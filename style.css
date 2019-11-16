@@ -1,0 +1,26 @@
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #dce9ef;
+  color: #025e7b;
+}
+
+span {
+  padding: 0;
+  font-size: 18vw;
+  font-family: "B612 Mono", monospace;
+}
+
+span.container {
+  font-size: 0;
+}
+
+.punctuation {
+  font-family: "Cutive Mono", monospace;
+  font-weight: bold;
+}
