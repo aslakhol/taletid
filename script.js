@@ -1,6 +1,5 @@
 const minutesDisplay = document.querySelector("#minutes");
 const secondsDisplay = document.querySelector("#seconds");
-const tenthsDisplay = document.querySelector("#tenths");
 
 let timerRunning = false;
 let interval;
@@ -23,19 +22,16 @@ const splitToUnits = ms => {
   const minutes = Math.trunc(ms / 60000);
   ms -= minutes * 60000;
   const seconds = Math.trunc(ms / 1000);
-  ms -= seconds * 1000;
-  const tenths = Math.trunc((ms % 1000) / 10);
-  return [minutes, seconds, tenths];
+  return [minutes, seconds];
 };
 
 const prepareDoubleDigitString = num =>
   `${num}`.length === 1 ? `0${num}` : `${num}`;
 
 const writeToSpans = units => {
-  const [minutes, seconds, tenths] = units;
+  const [minutes, seconds] = units;
   minutesDisplay.innerHTML = minutes;
   secondsDisplay.innerHTML = seconds;
-  tenthsDisplay.innerHTML = tenths;
 };
 
 // Control related
