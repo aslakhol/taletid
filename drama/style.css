@@ -2,7 +2,6 @@
   --color: #025e7b;
   --border-width: 0;
   --transition: border-width 1s cubic-bezier(0.25, 0.75, 1, 0.1);
-  --animation: none;
 }
 
 body {
@@ -20,7 +19,6 @@ body {
   border-left-width: 0;
   border-right-width: 0;
   transition: var(--transition);
-  animation: var(--animation);
 }
 
 span {
