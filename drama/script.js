@@ -45,7 +45,6 @@ const stopTimer = () => {
   timerRunning = false;
   setTransition("border-width 0.2s");
   setBorderWidth("0");
-  setAnimation("none");
 };
 
 const startTimer = () => {
@@ -54,7 +53,6 @@ const startTimer = () => {
   timerRunning = true;
   setTransition("border-width 1s cubic-bezier(0.25, 0.75, 1, 0.1)")
   setBorderWidth("25vh");
-  setAnimation("colors 0.5s linear 1s infinite");
 };
 
 const setTransition = transition => {
