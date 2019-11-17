@@ -43,18 +43,30 @@ const toggleTimer = () => {
 const stopTimer = () => {
   clearInterval(interval);
   timerRunning = false;
-  setBorderColor("#025e7b");
+  setTransition("border-width 0.2s");
+  setBorderWidth("0");
+  setAnimation("none");
 };
 
 const startTimer = () => {
   const startTime = Date.now();
   interval = setInterval(() => updateTimer(startTime), 10);
   timerRunning = true;
-  setBorderColor("#dce9ef");
+  setTransition("border-width 1s cubic-bezier(0.25, 0.75, 1, 0.1)")
+  setBorderWidth("25vh");
+  setAnimation("colors 0.5s linear 1s infinite");
 };
 
-const setBorderColor = color => {
-  document.documentElement.style.setProperty("--border-color", color);
+const setTransition = transition => {
+  document.documentElement.style.setProperty("--transition", transition);
+};
+
+const setBorderWidth = width => {
+  document.documentElement.style.setProperty("--border-width", width);
+};
+
+const setAnimation = animation => {
+  document.documentElement.style.setProperty("--animation", animation);
 };
 
 document.addEventListener("click", toggleTimer);
