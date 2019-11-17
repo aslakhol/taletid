@@ -1,6 +1,11 @@
+:root {
+  --border-color: #025e7b;
+  --border-width: 8px;
+}
+
 body {
-  width: 100%;
-  height: 100vh;
+  width: calc(100% - (var(--border-width) * 2));
+  height: calc(100vh - (var(--border-width) * 2));
   margin: 0;
   padding: 0;
   display: flex;
@@ -8,6 +13,7 @@ body {
   justify-content: center;
   background-color: #dce9ef;
   color: #025e7b;
+  border: var(--border-width) solid var(--border-color);
 }
 
 span {
@@ -15,7 +21,7 @@ span {
   font-family: "B612 Mono", monospace;
 }
 
-span.container {
+.container {
   font-size: 0;
 }
 

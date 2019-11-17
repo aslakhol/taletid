@@ -43,12 +43,18 @@ const toggleTimer = () => {
 const stopTimer = () => {
   clearInterval(interval);
   timerRunning = false;
+  setBorderColor("#025e7b");
 };
 
 const startTimer = () => {
   const startTime = Date.now();
   interval = setInterval(() => updateTimer(startTime), 10);
   timerRunning = true;
+  setBorderColor("#dce9ef");
+};
+
+const setBorderColor = color => {
+  document.documentElement.style.setProperty("--border-color", color);
 };
 
 document.addEventListener("click", toggleTimer);
