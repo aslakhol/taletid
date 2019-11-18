@@ -1,24 +1,26 @@
 :root {
-  --border-color: #025e7b;
+  --color: #025e7b;
   --border-width: var(--border-width-off);
-  --border-width-on: 20px;
+  --border-width-on: 25vh;
   --border-width-off: 0px;
+  --transition: border-width 1s cubic-bezier(0.25, 0.75, 1, 0.1);
 }
 
 body {
-  box-sizing: border-box;
   width: 100%;
   height: 100vh;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #dce9ef;
-  color: #025e7b;
-  border: var(--border-width) solid var(--border-color);
+  color: var(--color);
+  border: var(--border-width) solid var(--color);
   border-left-width: 0;
   border-right-width: 0;
+  transition: var(--transition);
 }
 
 span {

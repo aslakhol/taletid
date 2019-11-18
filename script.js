@@ -43,19 +43,27 @@ const toggleTimer = () => {
 const stopTimer = () => {
   clearInterval(interval);
   timerRunning = false;
-  setBorderColor("#025e7b");
+  turnOffBorder()
 };
 
 const startTimer = () => {
   const startTime = Date.now();
   interval = setInterval(() => updateTimer(startTime), 10);
   timerRunning = true;
-  setBorderColor("#dce9ef");
+  turnOnBorder()
 };
 
-const setBorderColor = color => {
-  document.documentElement.style.setProperty("--border-color", color);
+const setBorderWidth = width => {
+  document.documentElement.style.setProperty("--border-width", width);
 };
+
+const turnOffBorder = () => {
+  setBorderWidth("var(--border-width-off)")
+}
+
+const turnOnBorder = () => {
+  setBorderWidth("var(--border-width-on)")
+}
 
 document.addEventListener("click", toggleTimer);
 document.onkeypress = e => {
