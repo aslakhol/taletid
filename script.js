@@ -43,27 +43,41 @@ const toggleTimer = () => {
 const stopTimer = () => {
   clearInterval(interval);
   timerRunning = false;
-  turnOffBorder()
+  setBorderWidthOff();
+  setTransitionOut();
 };
 
 const startTimer = () => {
   const startTime = Date.now();
   interval = setInterval(() => updateTimer(startTime), 10);
   timerRunning = true;
-  turnOnBorder()
+  setBorderWidthOn();
+  setTransitionIn();
 };
 
 const setBorderWidth = width => {
   document.documentElement.style.setProperty("--border-width", width);
 };
 
-const turnOffBorder = () => {
-  setBorderWidth("var(--border-width-off)")
-}
+const setBorderWidthOn = () => {
+  setBorderWidth("var(--border-width-on)");
+};
 
-const turnOnBorder = () => {
-  setBorderWidth("var(--border-width-on)")
-}
+const setBorderWidthOff = () => {
+  setBorderWidth("var(--border-width-off)");
+};
+
+const setTransition = transition => {
+  document.documentElement.style.setProperty("--transition", transition);
+};
+
+const setTransitionIn = transition => {
+  setTransition("var(--transition-in)");
+};
+
+const setTransitionOut = transition => {
+  setTransition("var(--transition-out)");
+};
 
 document.addEventListener("click", toggleTimer);
 document.onkeypress = e => {
