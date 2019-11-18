@@ -45,6 +45,7 @@ const stopTimer = () => {
   timerRunning = false;
   setBorderWidthOff();
   setTransitionOut();
+  setAnimationOff();
 };
 
 const startTimer = () => {
@@ -53,6 +54,7 @@ const startTimer = () => {
   timerRunning = true;
   setBorderWidthOn();
   setTransitionIn();
+  setAnimationOn();
 };
 
 const setBorderWidth = width => {
@@ -71,12 +73,24 @@ const setTransition = transition => {
   document.documentElement.style.setProperty("--transition", transition);
 };
 
-const setTransitionIn = transition => {
+const setTransitionIn = () => {
   setTransition("var(--transition-in)");
 };
 
-const setTransitionOut = transition => {
+const setTransitionOut = () => {
   setTransition("var(--transition-out)");
+};
+
+const setAnimation = animation => {
+  document.documentElement.style.setProperty("--animation", animation);
+};
+
+const setAnimationOn = () => {
+  setAnimation("var(--animation-on");
+};
+
+const setAnimationOff = () => {
+  setAnimation("var(--animation-off");
 };
 
 document.addEventListener("click", toggleTimer);
