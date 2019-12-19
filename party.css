@@ -46,6 +46,10 @@ span {
   font-weight: bold;
 }
 
+#tenths {
+  display: none;
+}
+
 @keyframes colors {
   0% {
     --color: #0097a7;

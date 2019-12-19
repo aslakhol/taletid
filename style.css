@@ -35,3 +35,7 @@ span {
   font-family: "Cutive Mono", monospace;
   font-weight: bold;
 }
+
+#tenths {
+  display: none;
+}
