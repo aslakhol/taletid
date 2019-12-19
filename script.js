@@ -97,9 +97,36 @@ const setAnimationOff = () => {
   setAnimation("var(--animation-off");
 };
 
+const selectStylesheet = title => {
+  [...document.getElementsByTagName("link")]
+    .filter(link => isStylesheet(link))
+    .map(link => setActiveOrNot(link, title));
+};
+
+const isStylesheet = link => {
+  return (
+    link.getAttribute("rel").indexOf("style") != -1 &&
+    link.getAttribute("title")
+  );
+};
+
+const setActiveOrNot = (link, title) => {
+  if (link.getAttribute("title") === title) {
+    link.disabled = false;
+  } else {
+    link.disabled = true;
+  }
+};
+
 document.addEventListener("click", toggleTimer);
 document.onkeypress = e => {
   if (e.code === "Space") {
     toggleTimer();
+  }
+  if (e.code === "KeyE") {
+    selectStylesheet("party");
+  }
+  if (e.code === "KeyR") {
+    selectStylesheet("drama");
   }
 };
