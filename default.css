@@ -9,6 +9,7 @@ span {
   font-size: 30vw;
   font-family: "B612 Mono", monospace;
   vertical-align: top;
+  user-select: none;
 }
 
 .punctuation {
