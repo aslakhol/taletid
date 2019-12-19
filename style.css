@@ -1,7 +1,7 @@
 :root {
   --border-color: #025e7b;
   --border-width: var(--border-width-off);
-  --border-width-on: 20px;
+  --border-width-on: 40px;
   --border-width-off: 0px;
 }
 
