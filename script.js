@@ -118,15 +118,14 @@ const setActiveOrNot = (link, title) => {
   }
 };
 
-document.addEventListener("click", toggleTimer);
+document.addEventListener("click", e => {
+  if (!document.querySelector(".buttons").contains(e.target)) {
+    toggleTimer();
+  }
+});
+
 document.onkeypress = e => {
   if (e.code === "Space") {
     toggleTimer();
-  }
-  if (e.code === "KeyE") {
-    selectStylesheet("party");
-  }
-  if (e.code === "KeyR") {
-    selectStylesheet("drama");
   }
 };
