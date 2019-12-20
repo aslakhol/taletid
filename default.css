@@ -42,17 +42,21 @@ span {
 .buttons {
   padding: 8px;
   position: fixed;
+  user-select: none;
 }
 
-button {
+.button {
   padding: 4px 8px;
   background-color: #dce9ef;
-  border-radius: 2px;
   color: #686767;
-  border-color: #68676726;
+  display: inline-block;
+  border-radius: 2px;
+  border: 1px solid #68676726;
+  font-family: system-ui;
+  font-size: 11px;
 }
 
-button:hover {
+.button:hover {
   background-color: #015e7b;
   color: white;
 }
