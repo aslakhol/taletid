@@ -118,6 +118,37 @@ const setActiveOrNot = (link, title) => {
   }
 };
 
+const timerIsHighlighted = () => {
+  const currentTextColor = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue("--text-color");
+  const highlightColor = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue("--highlight-color");
+
+  return currentTextColor === highlightColor;
+};
+
+const toggleTimerHighlight = () => {
+  if (timerIsHighlighted()) {
+    setHighlightOff();
+  } else {
+    setHighlightOn();
+  }
+};
+
+const setHighlight = highlight => {
+  document.documentElement.style.setProperty("--text-color", highlight);
+};
+
+const setHighlightOn = () => {
+  setHighlight("var(--highlight-color");
+};
+
+const setHighlightOff = () => {
+  setHighlight("var(--dark-color");
+};
+
 document.addEventListener("click", e => {
   if (!document.querySelector(".buttons").contains(e.target)) {
     toggleTimer();
@@ -127,5 +158,7 @@ document.addEventListener("click", e => {
 document.onkeypress = e => {
   if (e.code === "Space") {
     toggleTimer();
+  } else if (e.code === "Enter") {
+    toggleTimerHighlight();
   }
 };
