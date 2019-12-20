@@ -4,15 +4,28 @@
         <meta charset="utf-8">
         <title>Taletimer</title>
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
-        <link rel="stylesheet" href="style.css">
+        <link href="default.css" rel="stylesheet" type="text/css">
+        <link href="style.css" rel="stylesheet" type="text/css" title="no-tenths">
+        <link href="drama.css" rel="stylesheet" type="text/css" title="drama" disabled>
+        <link href="party.css" rel="stylesheet" type="text/css" title="party" disabled>
+        <link href="tenths.css" rel="stylesheet" type="text/css" title="tenths" disabled>
         <link href="https://fonts.googleapis.com/css?family=B612+Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Cutive+Mono&display=swap" rel="stylesheet">
     </head>
     <body>
+      <div class="buttons">
+        <div class="button" onclick="selectStylesheet('tenths')">Tenths</div>
+        <div class="button" onclick="selectStylesheet('no-tenths')">No Tenths</div>
+        <div class="button" onclick="selectStylesheet('drama')">Drama</div>
+        <div class="button" onclick="selectStylesheet('party')">Party</div>
+      </div>
       <div class="container">
-        <span id="minutes">00</span>
-        <span class="punctuation">:</span>
-        <span id="seconds">00</span>
+        <div class="timer">
+          <span id="minutes">00</span>
+          <span class="punctuation">:</span>
+          <span id="seconds">00</span>
+        </div>
+        <span id="tenths">00</span>
       </div>
       <script src="script.js"></script>
     </body>

@@ -1,5 +1,6 @@
 const minutesDisplay = document.querySelector("#minutes");
 const secondsDisplay = document.querySelector("#seconds");
+const tenthsDisplay = document.querySelector("#tenths");
 
 let timerRunning = false;
 let interval;
@@ -22,16 +23,19 @@ const splitToUnits = ms => {
   const minutes = Math.trunc(ms / 60000);
   ms -= minutes * 60000;
   const seconds = Math.trunc(ms / 1000);
-  return [minutes, seconds];
+  ms -= seconds * 1000;
+  const tenths = Math.trunc((ms % 1000) / 10);
+  return [minutes, seconds, tenths];
 };
 
 const prepareDoubleDigitString = num =>
   `${num}`.length === 1 ? `0${num}` : `${num}`;
 
 const writeToSpans = units => {
-  const [minutes, seconds] = units;
+  const [minutes, seconds, tenths] = units;
   minutesDisplay.innerHTML = minutes;
   secondsDisplay.innerHTML = seconds;
+  tenthsDisplay.innerHTML = tenths;
 };
 
 // Control related
@@ -43,21 +47,83 @@ const toggleTimer = () => {
 const stopTimer = () => {
   clearInterval(interval);
   timerRunning = false;
-  setBorderColor("#025e7b");
+  setBorderWidthOff();
+  setTransitionOut();
+  setAnimationOff();
 };
 
 const startTimer = () => {
   const startTime = Date.now();
   interval = setInterval(() => updateTimer(startTime), 10);
   timerRunning = true;
-  setBorderColor("#dce9ef");
+  setBorderWidthOn();
+  setTransitionIn();
+  setAnimationOn();
 };
 
-const setBorderColor = color => {
-  document.documentElement.style.setProperty("--border-color", color);
+const setBorderWidth = width => {
+  document.documentElement.style.setProperty("--border-width", width);
 };
 
-document.addEventListener("click", toggleTimer);
+const setBorderWidthOn = () => {
+  setBorderWidth("var(--border-width-on)");
+};
+
+const setBorderWidthOff = () => {
+  setBorderWidth("var(--border-width-off)");
+};
+
+const setTransition = transition => {
+  document.documentElement.style.setProperty("--transition", transition);
+};
+
+const setTransitionIn = () => {
+  setTransition("var(--transition-in)");
+};
+
+const setTransitionOut = () => {
+  setTransition("var(--transition-out)");
+};
+
+const setAnimation = animation => {
+  document.documentElement.style.setProperty("--animation", animation);
+};
+
+const setAnimationOn = () => {
+  setAnimation("var(--animation-on");
+};
+
+const setAnimationOff = () => {
+  setAnimation("var(--animation-off");
+};
+
+const selectStylesheet = title => {
+  [...document.getElementsByTagName("link")]
+    .filter(link => isStylesheet(link))
+    .map(link => setActiveOrNot(link, title));
+};
+
+const isStylesheet = link => {
+  return (
+    link.getAttribute("rel").indexOf("style") != -1 &&
+    link.getAttribute("title")
+  );
+};
+
+const setActiveOrNot = (link, title) => {
+  if (link.getAttribute("title") === title) {
+    link.disabled = false;
+  } else {
+    link.disabled = true;
+  }
+};
+
+document.addEventListener("click", e => {
+  if (!document.querySelector(".buttons").contains(e.target)) {
+    toggleTimer();
+  }
+});
+
 document.onkeypress = e => {
   if (e.code === "Space") {
     toggleTimer();
