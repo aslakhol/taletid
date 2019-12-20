@@ -1,5 +1,4 @@
 :root {
-  --color: #025e7b;
   --border-width: var(--border-width-off);
   --border-width-on: 25vh;
   --border-width-off: 0px;
@@ -15,17 +14,13 @@
 
 .container {
   box-sizing: border-box;
-  background-color: #dce9ef;
-  color: var(--color);
-  border: var(--border-width) solid var(--color);
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  border: var(--border-width) solid var(--dark-color);
   border-left-width: 0;
   border-right-width: 0;
   transition: var(--transition);
   animation: var(--animation);
-}
-
-#tenths {
-  display: none;
 }
 
 @keyframes colors {
@@ -80,4 +75,8 @@
   100% {
     --color: #0097a7;
   }
+}
+
+#tenths {
+  display: none;
 }

@@ -1,5 +1,4 @@
 :root {
-  --border-color: #025e7b;
   --border-width: var(--border-width-off);
   --border-width-on: 40px;
   --border-width-off: 0px;
@@ -7,7 +6,7 @@
 
 .container {
   box-sizing: border-box;
-  border: var(--border-width) solid var(--border-color);
+  border: var(--border-width) solid var(--dark-color);
   border-left-width: 0;
   border-right-width: 0;
 }

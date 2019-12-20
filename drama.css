@@ -1,5 +1,4 @@
 :root {
-  --color: #025e7b;
   --border-width: var(--border-width-off);
   --transition: var(--transition-in);
   --border-width-on: 25vh;
@@ -10,9 +9,8 @@
 
 .container {
   box-sizing: border-box;
-  background-color: #dce9ef;
-  color: var(--color);
-  border: var(--border-width) solid var(--color);
+  background-color: var(--light-color);
+  border: var(--border-width) solid var(--dark-color);
   border-left-width: 0;
   border-right-width: 0;
   transition: var(--transition);
