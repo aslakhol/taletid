@@ -1,8 +1,15 @@
+:root {
+  --dark-color: #035e7b;
+  --light-color: #dce9ef;
+  --highlight-color: #e4602e;
+  --text-color: var(--dark-color);
+}
+
 body {
   margin: 0;
   padding: 0;
-  background-color: #dce9ef;
-  color: #025e7b;
+  background-color: var(--light-color);
+  color: var(--text-color);
 }
 
 span {
@@ -47,16 +54,16 @@ span {
 
 .button {
   padding: 4px 8px;
-  background-color: #dce9ef;
-  color: #686767;
+  background-color: var(--light-color);
   display: inline-block;
-  border-radius: 2px;
+  color: #686767;
   border: 1px solid #68676726;
+  border-radius: 2px;
   font-family: system-ui;
   font-size: 11px;
 }
 
 .button:hover {
-  background-color: #015e7b;
+  background-color: var(--dark-color);
   color: white;
 }
