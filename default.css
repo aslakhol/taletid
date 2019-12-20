@@ -20,7 +20,7 @@ span {
 .container {
   height: 100vh;
   display: grid;
-  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-rows: 25% 50% 25%;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
