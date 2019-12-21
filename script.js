@@ -1,3 +1,5 @@
+import { selectStylesheet } from "./buttons.js";
+
 const minutesDisplay = document.querySelector("#minutes");
 const secondsDisplay = document.querySelector("#seconds");
 const tenthsDisplay = document.querySelector("#tenths");
@@ -40,6 +42,22 @@ const writeToSpans = units => {
 
 // Control related
 
+document.addEventListener("click", e => {
+  if (!document.querySelector(".buttons").contains(e.target)) {
+    toggleTimer();
+  } else {
+    buttonPress(e.target.getAttribute("name"));
+  }
+});
+
+document.onkeypress = e => {
+  if (e.code === "Space") {
+    toggleTimer();
+  } else if (e.code === "Enter") {
+    toggleTimerHighlight();
+  }
+};
+
 const toggleTimer = () => {
   timerRunning ? stopTimer() : startTimer();
 };
@@ -59,6 +77,10 @@ const startTimer = () => {
   setBorderWidthOn();
   setTransitionIn();
   setAnimationOn();
+};
+
+const buttonPress = buttonName => {
+  selectStylesheet(buttonName);
 };
 
 const setBorderWidth = width => {
@@ -97,31 +119,6 @@ const setAnimationOff = () => {
   setAnimation("var(--animation-off");
 };
 
-const buttons = document.getElementsByClassName("button");
-
-const selectStylesheet = title => {
-  [...document.getElementsByTagName("link")]
-    .filter(link => isStylesheet(link))
-    .map((link, i) => setActiveOrNot(link, title, i));
-};
-
-const isStylesheet = link => {
-  return (
-    link.getAttribute("rel").indexOf("style") != -1 &&
-    link.getAttribute("title")
-  );
-};
-
-const setActiveOrNot = (link, title, i) => {
-  if (link.getAttribute("title") === title) {
-    link.disabled = false;
-    buttons[i].style.borderColor = "var(--selected-button-border)";
-  } else {
-    link.disabled = true;
-    buttons[i].style.borderColor = "var(--unselected-button-border)";
-  }
-};
-
 const timerIsHighlighted = () => {
   const currentTextColor = getComputedStyle(
     document.documentElement
@@ -151,18 +148,4 @@ const setHighlightOn = () => {
 
 const setHighlightOff = () => {
   setHighlight("var(--dark-color");
-};
-
-document.addEventListener("click", e => {
-  if (!document.querySelector(".buttons").contains(e.target)) {
-    toggleTimer();
-  }
-});
-
-document.onkeypress = e => {
-  if (e.code === "Space") {
-    toggleTimer();
-  } else if (e.code === "Enter") {
-    toggleTimerHighlight();
-  }
 };
