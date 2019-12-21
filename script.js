@@ -1,4 +1,4 @@
-import { selectStylesheet } from "./buttons.js";
+import { selectStylesheet } from "./js/buttons.js";
 
 const minutesDisplay = document.querySelector("#minutes");
 const secondsDisplay = document.querySelector("#seconds");
