@@ -55,7 +55,8 @@ span {
 }
 
 .button {
-  padding: 4px 8px;
+  vertical-align: bottom;
+  padding: 4px 8px 5px 8px;
   background-color: var(--light-color);
   display: inline-block;
   color: #686767;
@@ -65,7 +66,7 @@ span {
   font-size: 11px;
 }
 
-.button:first-child {
+.buttons > .button:first-child {
   border-color: var(--selected-button-border);
 }
 
@@ -76,4 +77,16 @@ span {
 
 .button:active {
   background-color: #207c99;
+}
+
+#github {
+  padding: 3px 8px 3px 8px;
+}
+
+svg {
+  vertical-align: top;
+}
+
+path {
+  fill: #686767;
 }
