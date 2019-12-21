@@ -97,10 +97,12 @@ const setAnimationOff = () => {
   setAnimation("var(--animation-off");
 };
 
+const buttons = document.getElementsByClassName("button");
+
 const selectStylesheet = title => {
   [...document.getElementsByTagName("link")]
     .filter(link => isStylesheet(link))
-    .map(link => setActiveOrNot(link, title));
+    .map((link, i) => setActiveOrNot(link, title, i));
 };
 
 const isStylesheet = link => {
@@ -110,11 +112,13 @@ const isStylesheet = link => {
   );
 };
 
-const setActiveOrNot = (link, title) => {
+const setActiveOrNot = (link, title, i) => {
   if (link.getAttribute("title") === title) {
     link.disabled = false;
+    buttons[i].style.borderColor = "var(--selected-button-border)";
   } else {
     link.disabled = true;
+    buttons[i].style.borderColor = "var(--unselected-button-border)";
   }
 };
 
