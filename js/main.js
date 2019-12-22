@@ -1,6 +1,6 @@
-import { selectStylesheet } from "./js/buttons.js";
-import { toggleTimerHighlight } from "./js/highlight.js";
-import { startTimer, stopTimer } from "./js/timer.js";
+import { selectStylesheet } from "./buttons.js";
+import { toggleTimerHighlight } from "./highlight.js";
+import { startTimer, stopTimer } from "./timer.js";
 
 let timerRunning = false;
 let interval;
