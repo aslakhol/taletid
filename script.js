@@ -1,4 +1,8 @@
 import { selectStylesheet } from "./js/buttons.js";
+import { toggleTimerHighlight } from "./js/highlight.js";
+import { setAnimationOn, setAnimationOff } from "./js/animation.js";
+import { setTransitionIn, setTransitionOut } from "./js/transition.js";
+import { setBorderWidthOn, setBorderWidthOff } from "./js/border-width.js";
 
 const minutesDisplay = document.querySelector("#minutes");
 const secondsDisplay = document.querySelector("#seconds");
@@ -81,71 +85,4 @@ const startTimer = () => {
 
 const buttonPress = buttonName => {
   selectStylesheet(buttonName);
-};
-
-const setBorderWidth = width => {
-  document.documentElement.style.setProperty("--border-width", width);
-};
-
-const setBorderWidthOn = () => {
-  setBorderWidth("var(--border-width-on)");
-};
-
-const setBorderWidthOff = () => {
-  setBorderWidth("var(--border-width-off)");
-};
-
-const setTransition = transition => {
-  document.documentElement.style.setProperty("--transition", transition);
-};
-
-const setTransitionIn = () => {
-  setTransition("var(--transition-in)");
-};
-
-const setTransitionOut = () => {
-  setTransition("var(--transition-out)");
-};
-
-const setAnimation = animation => {
-  document.documentElement.style.setProperty("--animation", animation);
-};
-
-const setAnimationOn = () => {
-  setAnimation("var(--animation-on");
-};
-
-const setAnimationOff = () => {
-  setAnimation("var(--animation-off");
-};
-
-const timerIsHighlighted = () => {
-  const currentTextColor = getComputedStyle(
-    document.documentElement
-  ).getPropertyValue("--text-color");
-  const highlightColor = getComputedStyle(
-    document.documentElement
-  ).getPropertyValue("--highlight-color");
-
-  return currentTextColor === highlightColor;
-};
-
-const toggleTimerHighlight = () => {
-  if (timerIsHighlighted()) {
-    setHighlightOff();
-  } else {
-    setHighlightOn();
-  }
-};
-
-const setHighlight = highlight => {
-  document.documentElement.style.setProperty("--text-color", highlight);
-};
-
-const setHighlightOn = () => {
-  setHighlight("var(--highlight-color");
-};
-
-const setHighlightOff = () => {
-  setHighlight("var(--dark-color");
 };
