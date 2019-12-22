@@ -1,4 +1,4 @@
-import { selectStylesheet } from "./buttons.js";
+import { selectStylesheet } from "./stylesheet-selection.js";
 import { toggleTimerHighlight } from "./highlight.js";
 import { startTimer, stopTimer } from "./timer.js";
 
