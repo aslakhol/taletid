@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 25% 50% 25%;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.timer {
+  grid-column: 1/4;
+  grid-row: 2/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#tenths {
+  grid-column: 3/2;
+  grid-row: 3/4;
+}
