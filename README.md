@@ -3,4 +3,4 @@ This is a very simple stopwatch for measuring speaking time during debates.
 `space` or `click` to toggle the timer. `enter` to change text colour.
 
 URL:
-https://aslakhol.github.io/taletid/
+https://taletid.aslak.io/
